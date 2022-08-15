@@ -23,13 +23,30 @@ namespace ft{
 
 
         public:
-
+            //CONSTRUCTORS
             reverse_iterator(): current() {};
             explicit reverse_iterator(iterator_type x): current(x) {};
+            
+            template<class U>
+		    reverse_iterator(const reverse_iterator<U> &other):	current(other.base()) {};
 
-        private:
+            //DESTRUCTOR
             ~reverse_iterator();
-   
+
+            //BASE () 
+		    iterator_type base() const
+		    {
+			    return this->current;
+		    };
+       
+            //OPERATOR "="
+            template<class U>
+		    reverse_iterator &operator = (const reverse_iterator<U> &other)
+		    {
+			    this->current = static_cast<reverse_iterator<Iterator> >(other.base());
+			    return *this;
+		    };
+
     };
 
 
