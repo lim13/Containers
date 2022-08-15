@@ -9,6 +9,7 @@ namespace ft{
     template <class Iterator> 
     class reverse_iterator 
     {   
+        
         public:
             typedef Iterator iterator_type;
 		    typedef typename iterator_traits<Iterator>::iterator_category iterator_category;
@@ -16,7 +17,23 @@ namespace ft{
 		    typedef typename iterator_traits<Iterator>::difference_type	difference_type;
 		    typedef typename iterator_traits<Iterator>::pointer pointer;
 		    typedef typename iterator_traits<Iterator>::reference reference;
+   
+        protected:
+            iterator_type   current;
+
+
+        public:
+
+            reverse_iterator(): current {};
+            explicit reverse_iterator(iterator_type x): current(x) {};
+
+        private:
+            ~reverse_iterator();
+   
+   
     };
+
+
 }
 
 # endif
