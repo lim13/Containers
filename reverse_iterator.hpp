@@ -24,12 +24,11 @@ namespace ft{
 
         public:
 
-            reverse_iterator(): current {};
+            reverse_iterator(): current() {};
             explicit reverse_iterator(iterator_type x): current(x) {};
 
         private:
             ~reverse_iterator();
-   
    
     };
 
